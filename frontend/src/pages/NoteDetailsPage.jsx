@@ -47,6 +47,17 @@ const NoteDetailsPage = () => {
       toast.error("Please add a title or content");
       return;
     }
+   setSaving(true);
+   try {
+    await axios.put(`http://localhost:3000/api/notes/${id}`, note);
+    toast.success('yay updated');
+    navigate('/');
+   } catch (error) {
+    console.log(error);
+    toast.error('error');
+   } finally {
+    setSaving(false);
+   }
   }
 
 if (loading || !note) return (<div className="text-6xl">Loading...</div>);
