@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router";
 import { formatDate } from "../lib/utils";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useState } from "react";
 const NoteCard = ({ note, setNotes }) => {
 
   const navigate = useNavigate();
