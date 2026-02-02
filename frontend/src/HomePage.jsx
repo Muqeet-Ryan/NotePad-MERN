@@ -1,8 +1,8 @@
-import Navbar from "./components/navbar.jsx"
-import { useEffect, useState } from "react"
+import Navbar from "./components/Navbar.jsx";
+import { useEffect, useState } from "react";
 import RateLimitedUI from "./components/RateLimitedUi.jsx";
 import api from './lib/axios.js';
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
 import NoteCard from "./components/NoteCard.jsx";
 
 const HomePage = () => {
