@@ -18,7 +18,7 @@ connectDB();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://notepad-mern-frontend.vercel.app'
+    'https://notepadmern-frontend.onrender.com' 
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
