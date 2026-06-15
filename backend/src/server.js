@@ -23,8 +23,20 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use(rateLimiter);
+// app.use(rateLimiter);
 app.use('/api/notes', notesRoute);
+
+app.get("/", (req, res) => {
+  res.send("API running");
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    db: "connected",
+    time: new Date().toISOString()
+  });
+});
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname,'../frontend/dist')));
