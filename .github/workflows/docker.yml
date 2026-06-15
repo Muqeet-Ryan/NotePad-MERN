@@ -39,4 +39,3 @@ jobs:
 
           docker push \
             ${{ secrets.DOCKER_USERNAME }}/notepadmern-backend:latest
-```
