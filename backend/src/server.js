@@ -15,11 +15,13 @@ const __dirname = path.resolve();
 
 connectDB();
 
-if(process.env.NODE_ENV !== 'production'){
 app.use(cors({
-    origin: 'http://localhost:5173'
+  origin: [
+    'http://localhost:5173',
+    'https://notepad-mern-frontend.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
-}
 
 app.use(express.json());
 
@@ -38,13 +40,7 @@ app.get("/health", (req, res) => {
   });
 });
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname,'../frontend/dist')));
-app.get('*', (req,res) => {
-    res.sendFile(path.join(__dirname, '../frontend', 'dist', 'index.html'));
-});
-}
-const PORT = process.env.PORT; 
+const PORT = process.env.PORT || 3000; 
 
 app.listen(PORT, () => {
     console.log(`Server running on ${PORT}`);
