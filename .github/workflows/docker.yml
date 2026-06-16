@@ -30,6 +30,7 @@ jobs:
         run: |
           docker build \
             -f frontend/Dockerfile.prod \
+            --build-arg VITE_API_URL=${{ secrets.VITE_API_URL }} \
             -t ${{ secrets.DOCKER_USERNAME }}/notepadmern-frontend:latest \
             ./frontend
 
