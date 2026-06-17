@@ -1,0 +1,8 @@
+apiVersion: notepad.io/v1
+kind: NotepadApp
+metadata:
+  name: my-notepad
+spec:
+  replicas: 3
+  environment: production
+  version: "1.0"
